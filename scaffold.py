@@ -15,6 +15,11 @@ source_directory_path = os.path.join(arguments.template_directory, arguments.tem
 dest = arguments.dest
 basename = os.path.basename(source_directory_path)
 
+# Create the template directory if it does not exist and is also the default one.
+if not os.path.exists(source_directory_path):
+    print("Created scaffolding directory at {}".format(source_directory_path))
+    os.makedirs(source_directory_path)
+
 # Check for valid paths.
 if not os.path.exists(source_directory_path):
     print ("Scaffold {} could not be found.".format(basename))
